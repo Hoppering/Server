@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <main>
+        <div class="jumbotron">
+            <h1>Файлы для скачивания</h1>
+            <ul>
+                <% files.forEach(function(item) { %>
+                    <li>
+                        <strong>Название: <%= item.name %></strong>
+                        <ol>
+                                <form action="/fileDelete/<%= item.id %>" method="post" enctype="multipart/form-data">
+                                    <a href="http://127.0.0.1:8080/file/<%= item.id %>" download>Скачать файл</a>                       
+                                    <button class="btn"><i class="fa fa-trash"></i> Удалить</button>
+                                  </form>          
+                        </ol>
+                    </li>
+
+                <% }); %>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

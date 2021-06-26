@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <main>
+        <div class="jumbotron">
+            <h1>Сообщения</h1>
+            <form action="/messageSend" method="post" enctype="multipart/form-data">
+                <textarea rows="10" name="mes" style="resize: none; width: 100%;"></textarea>
+                <button>Отправить</button>
+              </form>
+              <h2>Список сообщений</h2>
+              <ul>
+
+                <% messages.forEach(function(item) { %>
+                    <li>
+                        <strong>Сообщение: [<%= item.time %>] - <%= item.text %></strong>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>
